@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Hands on Artificial Intelligence Robotics</title>
+		<meta name="description" content="Presentation for Hands on Artificial Intelligence Robotics" />
+		<meta name="author" content="asheshwor" />
+				<meta name="author-email" content="asheshwor@gmail.com" />
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/ash.css" id="theme">
+				<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/theme/ash.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<header class="right" style="position: absolute;top: 5px; right: 5px; font-family: 'Dosis'; z-index:1; font-size:30px; color:#ffffff;"></header>
+			<headerlight class="right" style="position: absolute;top: 5px; right: 5px; font-family: 'Dosis'; z-index:1; font-size:30px;"></headerlight>
+			<div class="slides">
+				<section data-background-video="assets/nao-wave.mp4" data-background-video-loop data-background-video-muted><!-- *********************************** a slide  ***************-->
+					<h1 style="color: black; background-color:rgba(255,255,255,0.7);">Hands on Artificial Intelligence Robotics<br />with NAO robot</h1><br /><br />
+<p style="color: black; background-color:rgba(255,255,255,0.7);">National Science Week<br /><small>City Library, City of Adelaide<br />19 August 2017<br /></small></p>
+<div style="color: #222222; background-color:rgba(255,255,255,0.7);">
+										<!-- <div style="float: left;" class="w33">
+					<p></p></div> -->
+												<div style="display: inline-block;" class="w45">
+					<p>Asheshwor Shrestha<br />
+												<small><a href="mailto:asheshwor@gmail.com">asheshwor@gmail.com</a></small></p></div>
+																			 <!-- <div style="float: right;" class="w33">
+					<p></p></div>
+										<div style="display: inline-block;" class="w45"><p><small>Geography, Environment & Population,<br />The University of Adelaide</small></p></div>
+										-->
+										</div>
+				</section>
+				<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+					<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">What we'll do today?</h1>
+<ul  style="color: black; background-color:rgba(255,255,255,0.4);">
+<li>Learn NAO robot basics</li>
+<li>Create programs in Choregraphe to control NAO Robot
+<ul><li>Exercise 1: Hello world with NAO</li>
+<li>Exercise 2: Making NAO dance</li>
+<li>Exercise 3: Conversations with NAO</li>
+<li>Exercise 4: Facial recognition</li></ul>
+</li></ul>
+				                </section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+					<style>.header header:after { content: "[Science Week 2017]";}</style>
+									<h1 style="color: black; background-color:rgba(255,255,255,0.4);">NAO Robot basics</h1>
+									<ul style="color: black; background-color:rgba(255,255,255,0.4);">
+<li>What is a Robot?</li>
+<ul class="fragment" data-fragment-index="1"><li>A robot is an intelligent system that interacts with the physical environment through sensors and effectors.</li></ul>
+<li class="fragment" data-fragment-index="2">NAO is a humanoid robot developed by Aldebaran Robotics, a French robotics company</li>
+<ul class="fragment" data-fragment-index="2"><li>58-cm tall, 5-kg</li>
+<li class="fragment" data-fragment-index="2">NAO is a completely programmable, autonomous, and interactive robot</li></ul>
+                    </ul>
+</section>
+<section data-background="assets/NAO_left_25.png" data-state="header" data-autoslide="3000"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">NAO sensors and kinematics
+</h1>
+<ul  style="color: black; background-color:rgba(255,255,255,0.4);">
+								<li class="fragment fade" data-fragment-index="1">Tactile sensors: Head, Hand, Foot</li>
+								<li class="fragment fade" data-fragment-index="2">Cameras, speakers, microphones, sonars, joint position sensors, accelerometer</li>
+<li class="fragment fade" data-fragment-index="3">25 degrees of freedom</li>
+<li class="fragment fade" data-fragment-index="4">Turning stiffness on and off - wake up / sleep</li>
+<li class="fragment fade" data-autoslide="0" data-fragment-index="5">Move NAO’s arm from robot view</li>							                    </ul>
+												                </section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">Choregraphe software
+</h1>
+<img src="assets/choregraphe_icon.png" style="border: none; box-shadow:none;" alt="Choregraphe logo.">
+<ul  style="color: black;" class="fragment" data-fragment-index="1">
+<li>Node based code editor (like Scratch or Dynamo)</li>
+<li>Developed by Softbanks</li>
+<li>Drag and drop "code boxes"</li></ul>
+<img class="fragment" src="assets/choregraphe-say.png" style="width:50%; border:none; box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);" alt="Choregraphe screenshot showing drag-and-drop box." data-fragment-index="2">
+																				                </section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">Choregraphe software</h1>
+<img src="assets/choregraphe-screen.png" style="border:none; box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);" alt="Choregraphe screenshot.">																																									</section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">Exercise 1: Hello world with NAO</h1>
+<ul  style="color: black; background-color:rgba(255,255,255,0.4);" class="fragment" data-fragment-index="1">
+<li>Make NAO talk and walk with Choregraphe</li>
+<li>Using “Animated say”, make NAO wave and talk</li>
+<li>Make NAO walk a set distance</li></ul>
+</section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">Animation mode</h1>
+<ul  style="color: black; background-color:rgba(255,255,255,0.4);" class="fragment" data-fragment-index="1">
+<li>Used to create movements from a series of poses</li>
+<li>Controlling motor stiffness</li>
+<li>Adding keyframes to animation timeline</li>
+<li>Keyframes can be copied</li></ul>
+</section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">Exercise 2: Making NAO dance</h1>
+<ul  style="color: black; background-color:rgba(255,255,255,0.4);" class="fragment" data-fragment-index="1">
+<li>Make NAO raise an arm using animation mode</li></ul>
+</section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">Autonomous life</h1>
+<ul  style="color: black; background-color:rgba(255,255,255,0.4);" class="fragment" data-fragment-index="1">
+<li>NAO has Basic Awareness enabled, Breathing animation, Speech Recognition and replies using Animated Say</li>
+<li>“Interactive”: one-to-one interaction </li>
+<li>“Solitary”: listening and responding to stimulus from the environment</li></ul>
+<img src="assets/choregraphe-buttons.png" class="fragment" data-fragment-index="2" style="border:none; box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);">
+</section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">Exercise 3: Conversations with NAO</h1>
+<ul  style="color: black; background-color:rgba(255,255,255,0.4);" class="fragment" data-fragment-index="1">
+<li>Demo NAO’s autonomous capabilities</li></ul>
+</section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);">Exercise 4: Facial recognition</h1>
+<ul  style="color: black; background-color:rgba(255,255,255,0.4);" class="fragment" data-fragment-index="1">
+<li>Make NAO learn a face and respond if it sees a recognised face</li></ul>
+</section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: black; background-color:rgba(255,255,255,0.4);"><i class="fa fa-terminal" style="color: #05304B;"></i>&nbsp;Further programming</h1>
+<ul style="color: black; background-color:rgba(255,255,255,0.4);" class="fragment" data-fragment-index="1">
+<li>Expand NAO’s capabilities with Python, C++, Java (and more)</li></ul>
+<img src="assets/python_logo.png" style="border: none; box-shadow:none;" height="120px" class="fragment" data-fragment-index="2"><img src="assets/java_logo.png" style="border: none; box-shadow:none;" height="120px" class="fragment" data-fragment-index="2">
+<img src="assets/cpp_logo.png" style="border: none; box-shadow:none;" height="120px" class="fragment" data-fragment-index="2">
+<p class="fragment" data-fragment-index="3">Python example:</p>
+<pre class="fragment" data-fragment-index="3"><code data-trim data-noescape>from naoqi import ALProxy
+naoip = "123.466.789.10"
+naoport = 9559
+tts = ALProxy("ALTextToSpeech", naoip, naoport)
+tts.say("Hello World!")
+</code></pre>
+</section>
+<section>
+<section data-background="assets/NAO_left_25.png" data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1 style="color: #222222; background-color:rgba(255,255,255,0.7);">Finishing off</h1>
+<p style="background-color:rgba(255,255,255,0.5);">For further NAO workshops, visit library website:<a href="http://www.cityofadelaide.com.au/your-community/library-services/city-library/"> http://www.cityofadelaide.com.au/your-community/library-services/city-library/</a>.</p>
+<p style="font-size: 55px;"><i class="fa fa-mouse-pointer" style="color: rgba(0, 0, 0, 0.8);"></i></p>
+<p><span style="background-color:rgba(255,255,255,0.5);"><i class="fa fa-television"></i>&nbsp;Slides: <a href="http://asheshwor.github.io/nao/presentation" style="color: #BEA887;">asheshwor.github.io/nao/presentation</a>&nbsp;</span><br>
+<span style="background-color:rgba(255,255,255,0.5);"><i class="fa fa-print"></i>&nbsp;Slides for printing:<a href="http://asheshwor.github.io/nao/presentation/?print-pdf"  style="color:#BEA887;">asheshwor.github.io/nao/presentation/?print-pdf</a>&nbsp;</span><br>
+<span style="background-color:rgba(255,255,255,0);"><small>&nbsp;Press <i class="fa fa-arrow-down"></i> key for references, acknowledgements and attributions</small></span></p>
+				</section>
+				<section data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1><i class="fa fa-cog" style="color: rgba(0, 0, 0, 0.5);"></i> Acknowledgements</h1>
+<ul><small>
+	<li>Much of the programs shown here were developed while the author was working as NAO Robot Innovator in Residence at the City Library, City of Adelaide, South Australia.</li>
+	<li>Thanks to Innovator in Residence peers Helton and Saman.</li>
+</small></ul><br /><br />
+</section>
+				<section data-state="header"><!-- *********************************** a slide  ***************-->
+<style>.header header:after { content: "[Science Week 2017]";}</style>
+<h1><i class="fa fa-flask" style="color: rgba(0, 0, 0, 0.5);"></i> Attributions</h1>
+<ul><small>
+<li>Slide framework: <a href="https://github.com/hakimel/reveal.js/" target="_blank_reveal">Reveal.js</a></li>
+<li>Fonts: <a href="https://www.google.com/fonts" target="_blank_fonts">Google fonts</a> and <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank_fonts2">Font Awesome</a></li>
+<li>Photo credits: </li>
+<li>Trademarks: </li>
+</small></ul>
+</section>
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				center: true,
+        slideNumber: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
